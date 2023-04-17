@@ -1,5 +1,9 @@
 import Form from './Form';
 import Tasks from './Tasks';
+import Buttons from './Buttons';
+import Section from './Section';
+import Header from './Header';
+import Container from './Container';
 
 const tasks = [
 	{id: 1, content: 'task1', done: false},
@@ -10,37 +14,19 @@ const hideDoneTasks = false;
 
 function App() {
 	return (
-		<main className='container'>
-			<header>
-				<h1> To do list </h1>
-			</header>
-
-			<section className='section'>
-				<header className='section__header'>
-					<h2>Add new task</h2>
-				</header>
-
-				<div className='section__body'>
-					<Form />
-				</div>
-			</section>
-
-			<section className='section'>
-				<header className='section__header'>
-					<h2>Task list</h2>
-					<div className='buttons'>
-						<button className='buttons__button'>Hide done tasks</button>
-						<button className='buttons__button'>
-							Select as done all tasks
-						</button>
-					</div>
-				</header>
-
-				<div className='section__body'>
+		<Container>
+			<Header title='To do list' />
+			<Section title='Add new task' body={<Form />} />
+			<Section
+				title='Task list'
+				body={
 					<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} key={tasks.id} />
-				</div>
-			</section>
-		</main>
+				}
+				extraHeaderContent={
+					<Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
+				}
+			/>
+		</Container>
 	);
 }
 
