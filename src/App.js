@@ -15,10 +15,10 @@ const hideDoneTasks = false;
 function App() {
 	return (
 		<Container>
-			<Header title='To do list' />
-			<Section title='Add new task' body={<Form />} />
+			<Header title='To do list 📔' />
+			<Section title='Add new task ✏️' body={<Form />} />
 			<Section
-				title='Task list'
+				title='Task list 📝'
 				body={
 					<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} key={tasks.id} />
 				}
